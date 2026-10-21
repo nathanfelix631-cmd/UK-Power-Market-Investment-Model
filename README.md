@@ -9,7 +9,7 @@ This project is an Asset-Level Stochastic Financial Risk Valuation Engine.
 This tool is designed to simulate and stress-test the financial forecasting of a £200M utility infrastructure project, in this case an onshore wind farm, under extremely macro-economically volatile conditions.
 Using DESNZ CAPEX figures, I calculated that the wind farm would have an installed capacity of about 148MW, using the midpoint of the cited £1.2-1.5M/MW unit deployment value range. 
 Since the current UK onshore windfarm capacity factor benchmark sits at around 35%, and there are 8,760 hours in a year, we can assume that the wind farm generates circa 454,000MWh annually. 
-I also used DESNZ figures, which stated that for onshore wind farming projects, a reliable range for OPEX is around 1.5-2.5% of CAPEX, and by again using the midpoint of that range, I ascertained the fixed annual costs to be £4M.  
+I also used DESNZ figures, which stated that for onshore wind farming projects, a reliable range for OPEX is around 1.5-2.5% of CAPEX, and by again using the midpoint of that range, I ascertained the baseline annual costs to be £4M.  
 
 
 The tool tests the break-even probability of the asset over 25 years, isolating how market shocks, such as wholesale power price collapse, impact the project's Net Project Value (NPV). 
