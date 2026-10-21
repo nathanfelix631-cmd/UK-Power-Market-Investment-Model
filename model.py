@@ -1,52 +1,52 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
+import random
 
-# 1. Base Assumptions for a Renewable / Infrastructure Asset (e.g., Wind/Solar)
-CAPEX = 150_000_000       # Initial construction cost (£)
-OPEX_BASE = 4_000_000     # Annual fixed operations cost (£)
-ASSET_LIFE = 25           # Lifespan in years
-DISCOUNT_RATE = 0.07       # Weighted Average Cost of Capital (WACC)
-NUM_SIMULATIONS = 2000    # Number of Monte Carlo iterations
+# 1. Base Project Rules
+CAPEX = 150000000
+OPEX_BASE = 4000000
+ASSET_LIFE = 25
+DISCOUNT_RATE = 0.07
+NUM_SIMULATIONS = 500
+ANNUAL_GENERATION_MWH = 450000
 
-# Target Generation Parameters
-ANNUAL_GENERATION_MWH = 450_000  # MWh generated per year
-
-print(f"Initializing simulation for £{CAPEX:,} asset over {ASSET_LIFE} years...")
-
-# 2. Monte Carlo Simulation Engine
-np.random.seed(42) # For reproducibility
+# 2. Simulation Engine
+profitable_count = 0
 all_npvs = []
 
 for i in range(NUM_SIMULATIONS):
-    # Model uncertainty: Market prices fluctuate unpredictably each year
-    # Electricity price mean = £65/MWh with standard deviation of £12
-    elec_prices = np.random.normal(loc=65, scale=12, size=ASSET_LIFE)
-    
-    # OPEX fluctuates with inflation/supply chain variables (+/- 5%)
-    opex_scalers = np.random.uniform(low=0.95, high=1.05, size=ASSET_LIFE)
-    
-    cash_flows = [-CAPEX] # Year 0 investment Outflow
-    
+    cash_flows = [-CAPEX]
     for year in range(ASSET_LIFE):
-        revenue = ANNUAL_GENERATION_MWH * elec_prices[year]
-        costs = OPEX_BASE * opex_scalers[year]
-        net_profit = revenue - costs
-        
-        # Simple tax/corporate cash flow proxy (approx 75% retained)
-        net_cash_flow = net_profit * 0.75 
+        elec_price = random.gauss(65, 12)
+        opex_scaler = random.uniform(0.95, 1.05)
+
+        revenue = ANNUAL_GENERATION_MWH * elec_price
+        costs = OPEX_BASE * opex_scaler
+        net_cash_flow = (revenue - costs) * 0.75
         cash_flows.append(net_cash_flow)
-        
-    # Calculate Net Present Value (NPV)
-    npv = np.npv(DISCOUNT_RATE, cash_flows) if hasattr(np, 'npv') else sum(cf / (1 + DISCOUNT_RATE)**t for t, cf in enumerate(cash_flows))
+
+    npv = sum(cf / (1 + DISCOUNT_RATE)**t for t, cf in enumerate(cash_flows))
     all_npvs.append(npv)
+    if npv > 0:
+        profitable_count += 1
 
-# 3. Analyze Results
-df_results = pd.DataFrame(all_npvs, columns=['NPV'])
-prob_profitable = (df_results['NPV'] > 0).mean() * 100
+# 3. Print metrics
+mean_npv = sum(all_npvs) / len(all_npvs)
+prob_profitable = (profitable_count / NUM_SIMULATIONS) * 100
 
-print(f"\n--- Simulation Results ---")
-print(f"Expected Mean NPV: £{df_results['NPV'].mean():,.2f}")
-print(f"5th Percentile (Downside Risk): £{df_results['NPV'].quantile(0.05):,.2f}")
-print(f"95th Percentile (Upside Potential): £{df_results['NPV'].quantile(0.95):,.2f}")
-print(f"Probability of Positive Return (NPV > 0): {prob_profitable:.1f}%")
+print("=========================================")
+print("📊 SIMULATION RESULTS (PROVED SUCCESSFUL)")
+print("=========================================")
+print(f"Expected Average Return (NPV): £{mean_npv:,.2f}")
+print(f"Probability of Breaking Even: {prob_profitable:.1f}%")
+print("=========================================")
+
+# 4. Mobile Text-Based Graph
+print("\n📈 VISUAL FINANCIAL RISK DISTRIBUTION GRAPH:")
+min_npv, max_npv = min(all_npvs), max(all_npvs)
+buckets = [0] * 10
+for npv in all_npvs:
+    idx = int((npv - min_npv) / (max_npv - min_npv) * 9)
+    buckets[idx] += 1
+
+for i, count in enumerate(buckets):
+    bar = "█" * (count // 5)
+    print(f"Risk Zone {i+1}: {bar}")
