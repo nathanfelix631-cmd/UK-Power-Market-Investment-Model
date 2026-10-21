@@ -25,7 +25,7 @@ Below is the verified structural compiler output demonstrating the risk-engine c
 =========================================
 💨 CALIBRATED ONSHORE WIND RISK RESULTS 
 =========================================
-Expected Average Return (NPV): £35,041,160.13
+Expected Average Return (NPV): £36,441,160.13
 Probability of Breaking Even: 100.0%
 =========================================
 
@@ -34,7 +34,7 @@ Probability of Breaking Even: 100.0%
 Risk Zone 1  | █
 Risk Zone 2  | ████████
 Risk Zone 3  | ██████████████
-Risk Zone 4  | ██████████████████████████  <-- Expected Mean (£35.0M)
+Risk Zone 4  | ██████████████████████████  <-- Expected Mean (£36.4M)
 Risk Zone 5  | ████████████████████
 Risk Zone 6  | █████████████████
 Risk Zone 7  | ███████
