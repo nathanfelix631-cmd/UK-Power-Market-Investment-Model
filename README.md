@@ -6,11 +6,14 @@
 
 
 This project is an Asset-Level Stochastic Financial Risk Valuation Engine.
-This tool is designed to simulate the lifetime economics of a capital-intensive infrastructure project, such as a wind farm of a nuclear power plant, under conditions of extreme market volatility.   
+This tool is designed to simulate and stress-test the financial forecasting of a £150M utility infrastructure project, such as a wind farm of a nuclear power plant, under conditions of extreme macroeconomic volatility.   
 
+The tool tests the break-even probability of the asset over 25 years, isolating how market shocks, such as wholesale power price collapse, impact the project's Net Project Value (NPV). 
+Traditional financial models assume fixed, flat electricity prices every year, ignoring realistic market crashes. This project however, creates 500 independent, paralle-universe type lifecycles. 
 
-
-
+To execute this, I engineered a Monte Carlo simulation loop in Python, ensuring a highly auditable codebase. I used a Guassian distribution to model wholesale electrical prices, I anchored the mean at the UK's historical £65/MWh baseline, with a standard deviation of £12. This mathematically guarantees a 95% market swing capture between £41-89/MWh.
+To simulate supply chain friction, I subjected the assigned £4M baseline cost to a Uniform Continuous Distribution of +/-5% annually. 
+The script flows into a Discounted Cash Flow (DCF), to which a 25% corporate tax proxy to isolate net cash is applied, then discounting those flows back to Year 0, using a standard Weighted Average Cost of Capital for tier-1 UK infrastructure discount rate of 7%. 
 
 
 
