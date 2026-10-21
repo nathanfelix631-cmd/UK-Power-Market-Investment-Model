@@ -5,7 +5,8 @@
 
 
 
-This project is an Asset-Level Stochastic Financial Risk Valuation Engine
+This project is an Asset-Level Stochastic Financial Risk Valuation Engine.
+This tool is designed to simulate the lifetime economics of a capital-intensive infrastructure project, such as a wind farm of a nuclear power plant, under conditions of extreme market volatility.   
 
 
 
