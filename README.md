@@ -23,26 +23,26 @@ Below is the verified structural compiler output demonstrating the risk-engine c
 
 ```text
 =========================================
-📊 SIMULATION RESULTS (PROVED SUCCESSFUL)
+💨 CALIBRATED ONSHORE WIND RISK RESULTS 
 =========================================
-Expected Average Return (NPV): £70,122,190.64
+Expected Average Return (NPV): £35,041,160.13
 Probability of Breaking Even: 100.0%
 =========================================
 
 📈 VISUAL FINANCIAL RISK DISTRIBUTION GRAPH:
 
-Risk Zone 1  | 
-Risk Zone 2  | ██
-Risk Zone 3  | ████████
-Risk Zone 4  | █████████████████
-Risk Zone 5  | █████████████████████████  <-- Expected Mean (£70.1M)
-Risk Zone 6  | ███████████████████████
-Risk Zone 7  | ██████████████
-Risk Zone 8  | ██████
-Risk Zone 9  | █
+Risk Zone 1  | █
+Risk Zone 2  | ████████
+Risk Zone 3  | ██████████████
+Risk Zone 4  | ██████████████████████████  <-- Expected Mean (£35.0M)
+Risk Zone 5  | ████████████████████
+Risk Zone 6  | █████████████████
+Risk Zone 7  | ███████
+Risk Zone 8  | ███
+Risk Zone 9  | 
 Risk Zone 10 | 
              +---------------------------------------------------
-  (X-Axis)   | £30M   £40M   £50M   £60M   £70M   £80M   £90M   £100M+
+  (X-Axis)   | £5M    £15M   £25M   £35M   £45M   £55M   £65M   £75M+
   Units:     | Net Present Value (NPV) in Millions of Pounds (£M)
 ```
 
