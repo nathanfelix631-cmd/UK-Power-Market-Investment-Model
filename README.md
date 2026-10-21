@@ -13,7 +13,7 @@ Traditional financial models assume fixed, flat electricity prices every year, i
 
 To execute this, I engineered a Monte Carlo simulation loop in Python, ensuring a highly auditable codebase. I used a Guassian distribution to model wholesale electrical prices, I anchored the mean at the UK's historical £65/MWh baseline, with a standard deviation of £12. This mathematically guarantees a 95% market swing capture between £41-89/MWh.
 To simulate supply chain friction, I subjected the assigned £4M baseline cost to a Uniform Continuous Distribution of +/-5% annually. 
-The script flows into a Discounted Cash Flow (DCF), to which a 25% corporate tax proxy to isolate net cash is applied, then discounting those flows back to Year 0, using a standard Weighted Average Cost of Capital for tier-1 UK infrastructure discount rate of 7%. 
+The script flows into a Discounted Cash Flow (DCF), to which a 25% corporate tax proxy to isolate net cash is applied, which then discounts those flows back to Year 0 using a discount rate of 7%, a standard Weighted Average Cost of Capital (WACC) for tier-1 UK infrastructure.
 
 
 
