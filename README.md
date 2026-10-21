@@ -6,7 +6,8 @@
 
 
 This project is an Asset-Level Stochastic Financial Risk Valuation Engine.
-This tool is designed to simulate and stress-test the financial forecasting of a £180M utility infrastructure project, in this case an onshore wind farm, under extremely macro-economically volatile conditions.   
+This tool is designed to simulate and stress-test the financial forecasting of a £200M utility infrastructure project, in this case an onshore wind farm, under extremely macro-economically volatile conditions.
+
 
 The tool tests the break-even probability of the asset over 25 years, isolating how market shocks, such as wholesale power price collapse, impact the project's Net Project Value (NPV). 
 Traditional financial models assume fixed, flat electricity prices every year, ignoring realistic market crashes. This project however, creates 500 independent, paralle-universe type lifecycles. 
