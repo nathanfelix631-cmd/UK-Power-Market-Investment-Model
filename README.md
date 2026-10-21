@@ -10,6 +10,11 @@ Build using Python and Excel, this is a quantitative asset valuation model and M
 
 
 
+## 🖥️ Live Simulation Execution Output
+
+Below is the verified structural compiler output demonstrating the risk-engine calculations:
+
+```text
 =========================================
 📊 SIMULATION RESULTS (PROVED SUCCESSFUL)
 =========================================
@@ -19,15 +24,14 @@ Probability of Breaking Even: 100.0%
 
 📈 VISUAL FINANCIAL RISK DISTRIBUTION GRAPH:
 Risk Zone 1: 
-Risk Zone 2: ██
-Risk Zone 3: ████████
-Risk Zone 4: █████████████████
-Risk Zone 5: █████████████████████████
-Risk Zone 6: ███████████████████████
-Risk Zone 7: ██████████████
-Risk Zone 8: ██████
-Risk Zone 9: █
+Risk Zone 2:  ██
+Risk Zone 3:  ████████
+Risk Zone 4:  █████████████████
+Risk Zone 5:  █████████████████████████
+Risk Zone 6:  ███████████████████████
+Risk Zone 7:  ██████████████
+Risk Zone 8:  ██████
+Risk Zone 9:  █
 Risk Zone 10: 
+```
 
-
-** Process exited - Return Code: 0 **
