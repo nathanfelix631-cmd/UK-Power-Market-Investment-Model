@@ -27,26 +27,42 @@ Below is the verified structural compiler output demonstrating the risk-engine c
 
 ```text
 =========================================
-💨 CALIBRATED ONSHORE WIND RISK RESULTS 
+📊 STOCHASTIC SIMULATION RESULTS
 =========================================
-Expected Average Return (NPV): £23,834,230.65
-Probability of Breaking Even: 98.8%
+Expected Average Return (NPV): £23,389,871.63
+Probability of Breaking Even: 99.0%
 =========================================
 
 📈 VISUAL FINANCIAL RISK DISTRIBUTION GRAPH:
 
-Risk Zone 1  | 
-Risk Zone 2  | █                           <-- Financial Downside Risk Floor (<£0 NPV)
-Risk Zone 3  | ██████
-Risk Zone 4  | ██████████████
-Risk Zone 5  | ███████████████████████████ <-- Expected Mean Outcome (~£23.8M)
-Risk Zone 6  | ██████████████████████████
-Risk Zone 7  | ██████████████
-Risk Zone 8  | ███████
-Risk Zone 9  | █
-Risk Zone 10 | 
-             +---------------------------------------------------
-  (X-Axis)   | -£5M   £5M    £15M   £25M   £35M   £45M   £55M   £65M+
-  Units:     | Net Present Value (NPV) in Millions of Pounds (£M)
+ [NPV Range]     | [Simulation Path Frequency Density]
+-----------------+-------------------------------------------------------
+ -£20M to -£10M | 
+ -£10M to £0M    | █                                  <-- Financial Downside Floor (£0)
+  £0M to £10M    | ██████████
+  £10M to £20M   | █████████████████████████████████
+  £20M to £30M   | █████████████████████████████████████████████████
+  £30M to £40M   | █████████████████████████
+  £40M to £50M   | █████ <-- Expected Mean Outcome (£23.4M)
+  £50M to £60M   | 
+  £60M to £70M   | 
+  £70M+          | 
+-----------------+-------------------------------------------------------
+ (X-Axis Scale)  | 0    10   20   30   40   50   60   70   80   90   100+ 
+ (Units)         | Number of Run Iterations (Total Sample Size: 500 Paths)
+
+=========================================================================
+📌 CRITICAL FINANCIAL MILESTONE VALUES (NPV)
+=========================================================================
+ * Minimum Simulated Return:  £-8,036,851.62 (Absolute Downside Case)
+ * Expected Average Return:  £23,389,871.63 (Weighted Base Case)
+ * Maximum Simulated Return:  £51,795,796.52 (Optimistic Upside Case)
+ * Financial Risk Threshold:  £0.00          (99.0% Probability of Capital Preservation)
+=========================================================================
 ```
+
+
+
+
+
 
